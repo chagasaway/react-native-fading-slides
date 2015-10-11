@@ -11,10 +11,13 @@
     "url": "https://github.com/chagasaway/react-native-fading-slides.git"
   },
   "keywords": [
+    "react-component",
     "react-native",
     "slides",
     "intro",
-    "carousel"
+    "carousel",
+    "ios",
+    "android"
   ],
   "author": "Fellipe Chagas <chagas.0@gmail.com> (https://github.com/chagasaway)",
   "license": "MIT",
@@ -23,6 +26,6 @@
   },
   "homepage": "https://github.com/chagasaway/react-native-fading-slides",
   "peerDependencies": {
-    "react-native": ">=0.4 <1.0"
+    "react-native": ">=0.5"
   }
 }
