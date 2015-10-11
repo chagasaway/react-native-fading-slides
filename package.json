@@ -1,0 +1,28 @@
+{
+  "name": "react-native-fading-slides",
+  "version": "0.1.0",
+  "description": "Simple looped fading slides carousel for React Native",
+  "main": "fading-slides.component.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/chagasaway/react-native-fading-slides.git"
+  },
+  "keywords": [
+    "react-native",
+    "slides",
+    "intro",
+    "carousel"
+  ],
+  "author": "Fellipe Chagas <chagas.0@gmail.com> (https://github.com/chagasaway)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/chagasaway/react-native-fading-slides/issues"
+  },
+  "homepage": "https://github.com/chagasaway/react-native-fading-slides",
+  "peerDependencies": {
+    "react-native": ">=0.4 <1.0"
+  }
+}
