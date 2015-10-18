@@ -2,6 +2,8 @@
 
 Simple looped fading slides carousel for React Native.
 
+![alt tag](http://i.giphy.com/l41lR24WgEwYTaHzW.gif)
+
 ### Installation
 
 ```bash
