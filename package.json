@@ -26,6 +26,8 @@
   },
   "homepage": "https://github.com/chagasaway/react-native-fading-slides",
   "peerDependencies": {
-    "react-native": ">=0.5"
+    "react-native": ">=0.5",
+    "react-timer-mixin": "^0.13.3",
+    "react-tween-state": "^0.1.3"
   }
 }
