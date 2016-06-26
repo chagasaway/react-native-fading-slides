@@ -1,24 +1,20 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- */
-'use strict';
+import React, { Component } from 'react';
 
-var React = require('react-native');
-var Dimensions = require('Dimensions');
-var {width, height} = Dimensions.get('window');
-
-var FadingSlides = require('react-native-fading-slides');
-
-var {
+import {
   AppRegistry,
+  Dimensions,
   StyleSheet,
+  Text,
   View,
-} = React;
+} from 'react-native';
 
-var slides = [
+var { width, height } = Dimensions.get('window');
+
+const FadingSlides = require('react-native-fading-slides');
+
+const slides = [
   {
-    image: require('image!javascript'),
+    image: require('./img/javascript.png'),
     imageWidth: width - (width * 0.3),
     imageHeight: width - (width * 0.3),
     title: 'JavaScript',
@@ -27,7 +23,7 @@ var slides = [
     subtitleColor: 'yellow'
   },
   {
-    image: require('image!react'),
+    image: require('./img/react.png'),
     imageWidth: width - (width * 0.3),
     imageHeight: width - (width * 0.3),
     title: 'ReactJS',
@@ -37,8 +33,8 @@ var slides = [
   }
 ];
 
-var example = React.createClass({
-  render: function() {
+class example extends Component {
+  render() {
     return (
       <View style={styles.container}>
         <FadingSlides
@@ -50,15 +46,15 @@ var example = React.createClass({
       </View>
     );
   }
-});
+}
 
-var styles = StyleSheet.create({
+const styles = StyleSheet.create({
   container: {
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: '#000',
-  }
+  },
 });
 
 AppRegistry.registerComponent('example', () => example);
