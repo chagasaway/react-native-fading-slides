@@ -1,15 +1,15 @@
 'use strict';
 
-var React = require('react-native');
-var TimerMixin = require('react-timer-mixin');
-var tweenState = require('react-tween-state');
-
+var React = require('react');
 var {
   Animated,
   StyleSheet,
   View,
   Text
-} = React;
+} = require('react-native');
+
+var TimerMixin = require('react-timer-mixin');
+var tweenState = require('react-tween-state');
 
 let MINIMUM_DELAY = 100;
 
@@ -52,7 +52,9 @@ var FadingSlides = React.createClass({
   render: function () {
     var slide = this.props.slides[this.state.currentIndex];
     return (
-      <View style={[styles.slide, { height: this.props.height, opacity: this.getTweeningValue('opacity') }]}>
+      <View style={[styles.slide, {
+        height: this.props.height, opacity: this.getTweeningValue('opacity')
+      }]}>
         <View style={styles.info} />
         <Animated.Image
           style={{ width: slide.imageWidth, height: slide.imageHeight }}
