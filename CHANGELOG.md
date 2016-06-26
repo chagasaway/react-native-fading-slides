@@ -6,3 +6,6 @@
 
 ### 0.1.2
 - Fix package dependencies with react-timer-mixin and react-tween-state
+
+### 0.1.4
+- Remove peerDependencies and update react import (now compatible with recent react-native versions)
