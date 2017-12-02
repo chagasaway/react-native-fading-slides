@@ -1,13 +1,27 @@
 {
   "name": "example",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "private": true,
+  "devDependencies": {
+    "react-native-scripts": "1.8.1",
+    "jest-expo": "23.0.0",
+    "react-test-renderer": "16.0.0"
+  },
+  "main": "./node_modules/react-native-scripts/build/bin/crna-entry.js",
   "scripts": {
-    "start": "node node_modules/react-native/local-cli/cli.js start"
+    "start": "react-native-scripts start",
+    "eject": "react-native-scripts eject",
+    "android": "react-native-scripts android",
+    "ios": "react-native-scripts ios",
+    "test": "node node_modules/jest/bin/jest.js --watch"
+  },
+  "jest": {
+    "preset": "jest-expo"
   },
   "dependencies": {
-    "react": "15.1.0",
-    "react-native": "0.28.0",
-    "react-native-fading-slides": "^0.1.4"
+    "expo": "^23.0.4",
+    "prop-types": "^15.6.0",
+    "react": "16.0.0",
+    "react-native": "0.50.3"
   }
 }
