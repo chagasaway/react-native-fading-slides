@@ -1,7 +1,7 @@
 import React from "react";
 import { StyleSheet, Text, View, Dimensions } from "react-native";
 
-import FadingSlides from "./index";
+import FadingSlides from "react-native-fading-slides";
 
 const { width, height } = Dimensions.get("window");
 
