@@ -34,11 +34,9 @@ imageHeight={1000} // Slide's image height
 ### Usage Example
 
 ```javascript
-'use strict';
+import FadingSlides from 'react-native-fading-slides';
 
-var FadingSlides = require('react-native-fading-slides');
-
-var slides = [
+const slides = [
   {
     image: require('image!squared-image'),
     imageWidth: 100,
@@ -46,7 +44,7 @@ var slides = [
     title: 'Hello World',
     subtitle: 'This is a beautiful world',
     titleColor: '#fff',
-    subtitleColor: '#fff'
+    subtitleColor: '#fff',
   },
   {
     image: require('image!wide-image'),
@@ -55,13 +53,13 @@ var slides = [
     title: 'Bye World',
     subtitle: 'This is a see you soon',
     titleColor: '#fff',
-    subtitleColor: '#fff'
+    subtitleColor: '#fff',
   }
 ];
 
 //...
 
-render: function() {
+render() {
   return (
     <View>
       <FadingSlides
