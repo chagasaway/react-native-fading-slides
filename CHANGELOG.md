@@ -1,11 +1,20 @@
 ### 0.1.0
-- Initial component
+
+* Initial component
 
 ### 0.1.1
-- Add keywords for react.parts component submission
+
+* Add keywords for react.parts component submission
 
 ### 0.1.2
-- Fix package dependencies with react-timer-mixin and react-tween-state
+
+* Fix package dependencies with react-timer-mixin and react-tween-state
 
 ### 0.1.4
-- Remove peerDependencies and update react import (now compatible with recent react-native versions)
+
+* Remove peerDependencies and update react import (now compatible with recent
+  react-native versions)
+
+### 0.2.0
+
+* Use Animated API instead of TimerMixin and TweenState
