@@ -11,13 +11,13 @@ export default class FadingSlides extends React.Component {
   };
 
   componentDidMount() {
-    if (this.props.startSlides) {
+    if (this.props.startAnimation) {
       this._wait(this._hide);
     }
   }
 
   componentWillReceiveProps(nextProps) {
-    if (nextProps.startSlides) {
+    if (nextProps.startAnimation) {
       this._wait(this._hide);
     }
   }
@@ -46,7 +46,7 @@ export default class FadingSlides extends React.Component {
   _changeSlide = () => {
     let index = this.state.currentIndex + 1;
     index = index < this.props.slides.length ? index : 0;
-    if (this.props.startSlides) {
+    if (this.props.startAnimation) {
       this.setState({ currentIndex: index }, this._show);
       counter = index;
     }
@@ -103,7 +103,7 @@ const styles = StyleSheet.create({
 });
 
 FadingSlides.propTypes = {
-  startSlides: PropTypes.bool,
+  startAnimation: PropTypes.bool,
   stillDuration: PropTypes.number,
   fadeDuration: PropTypes.number,
   height: PropTypes.number,
@@ -121,7 +121,7 @@ FadingSlides.propTypes = {
 };
 
 FadingSlides.defaultProps = {
-  startSlides: false,
+  startAnimation: false,
   stillDuration: MINIMUM_DELAY,
   fadeDuration: MINIMUM_DELAY
 };
