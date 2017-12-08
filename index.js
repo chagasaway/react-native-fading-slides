@@ -1,6 +1,6 @@
-import React from "react";
-import { StyleSheet, Text, Image, View, Animated, Easing } from "react-native";
-import PropTypes from "prop-types";
+import React from 'react';
+import { StyleSheet, Text, Image, View, Animated, Easing } from 'react-native';
+import PropTypes from 'prop-types';
 
 const MINIMUM_DELAY = 100;
 
@@ -11,7 +11,15 @@ export default class FadingSlides extends React.Component {
   };
 
   componentDidMount() {
-    this._wait(this._hide);
+    if (this.props.startSlides) {
+      this._wait(this._hide);
+    }
+  }
+
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.startSlides) {
+      this._wait(this._hide);
+    }
   }
 
   _animate = (targetValue, cb) => {
@@ -38,7 +46,10 @@ export default class FadingSlides extends React.Component {
   _changeSlide = () => {
     let index = this.state.currentIndex + 1;
     index = index < this.props.slides.length ? index : 0;
-    this.setState({ currentIndex: index }, this._show);
+    if (this.props.startSlides) {
+      this.setState({ currentIndex: index }, this._show);
+      counter = index;
+    }
   };
 
   render() {
@@ -71,19 +82,19 @@ export default class FadingSlides extends React.Component {
 const styles = StyleSheet.create({
   slide: {
     flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
-    flexDirection: "column"
+    justifyContent: 'center',
+    alignItems: 'center',
+    flexDirection: 'column'
   },
   info: {
     flex: 1,
-    justifyContent: "flex-end",
-    alignItems: "center",
-    flexDirection: "column"
+    justifyContent: 'flex-end',
+    alignItems: 'center',
+    flexDirection: 'column'
   },
   title: {
     fontSize: 22,
-    fontWeight: "700"
+    fontWeight: '700'
   },
   subtitle: {
     fontSize: 20,
@@ -92,6 +103,7 @@ const styles = StyleSheet.create({
 });
 
 FadingSlides.propTypes = {
+  startSlides: PropTypes.bool,
   stillDuration: PropTypes.number,
   fadeDuration: PropTypes.number,
   height: PropTypes.number,
@@ -109,6 +121,7 @@ FadingSlides.propTypes = {
 };
 
 FadingSlides.defaultProps = {
+  startSlides: false,
   stillDuration: MINIMUM_DELAY,
   fadeDuration: MINIMUM_DELAY
 };
