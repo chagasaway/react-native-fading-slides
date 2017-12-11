@@ -1,5 +1,7 @@
 ## React Native FadingSlides Component
 
+[![DeepScan Grade](https://deepscan.io/api/projects/1122/branches/2515/badge/grade.svg)](https://deepscan.io/dashboard/#view=project&pid=1122&bid=2515)
+
 Simple looped fading slides carousel for React Native.
 
 ![alt tag](http://i.giphy.com/l41lR24WgEwYTaHzW.gif)
