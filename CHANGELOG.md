@@ -18,3 +18,7 @@
 ### 0.2.0
 
 * Use Animated API instead of TimerMixin and TweenState
+
+### 0.3.0
+
+* Fixes memory leak and adds startAnimation property

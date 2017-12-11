@@ -1,112 +1,84 @@
 import React from 'react';
-import { StyleSheet, Text, Image, View, Animated, Easing } from 'react-native';
+import { Text, Image, View, Animated, Easing } from 'react-native';
 import PropTypes from 'prop-types';
+import styles from './index.styles';
 
 const MINIMUM_DELAY = 100;
 
 export default class FadingSlides extends React.Component {
   state = {
     opacity: new Animated.Value(1),
-    currentIndex: 0
+    currentIndex: 0,
   };
 
   componentDidMount() {
     if (this.props.startAnimation) {
-      this._wait(this._hide);
+      this.wait(this.hide);
     }
   }
 
   componentWillReceiveProps(nextProps) {
     if (nextProps.startAnimation) {
-      this._wait(this._hide);
+      this.wait(this.hide);
     }
   }
 
-  _animate = (targetValue, cb) => {
+  animate = (targetValue, cb) => {
     Animated.timing(this.state.opacity, {
       toValue: targetValue,
       easing: Easing.circle,
       duration: this.props.fadeDuration,
-      useNativeDriver: true
-    }).start(() => this._wait(cb));
+      useNativeDriver: true,
+    }).start(() => this.wait(cb));
   };
 
-  _wait = cb => {
+  wait = cb => {
     Animated.delay(this.props.stillDuration).start(cb);
   };
 
-  _show = () => {
-    this._animate(1, this._hide);
+  show = () => {
+    this.animate(1, this.hide);
   };
 
-  _hide = () => {
-    this._animate(0, this._changeSlide);
+  hide = () => {
+    this.animate(0, this.changeSlide);
   };
 
-  _changeSlide = () => {
+  changeSlide = () => {
     let index = this.state.currentIndex + 1;
     index = index < this.props.slides.length ? index : 0;
     if (this.props.startAnimation) {
-      this.setState({ currentIndex: index }, this._show);
-      counter = index;
+      this.setState({ currentIndex: index }, this.show);
     }
   };
 
   render() {
     const slide = this.props.slides[this.state.currentIndex];
+    const containerStyles = [
+      styles.slide,
+      { height: this.props.height, opacity: this.state.opacity },
+    ];
     return (
-      <Animated.View
-        style={[
-          styles.slide,
-          { height: this.props.height, opacity: this.state.opacity }
-        ]}
-      >
+      <Animated.View style={containerStyles}>
         <View style={styles.info} />
         <Image
           style={{ width: slide.imageWidth, height: slide.imageHeight }}
           source={slide.image}
         />
         <View style={styles.info}>
-          <Text style={[styles.title, { color: slide.titleColor }]}>
-            {slide.title}
-          </Text>
-          <Text style={[styles.subtitle, { color: slide.subtitleColor }]}>
-            {slide.subtitle}
-          </Text>
+          <Text style={[styles.title, { color: slide.titleColor }]}>{slide.title}</Text>
+          <Text style={[styles.subtitle, { color: slide.subtitleColor }]}>{slide.subtitle}</Text>
         </View>
       </Animated.View>
     );
   }
 }
 
-const styles = StyleSheet.create({
-  slide: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    flexDirection: 'column'
-  },
-  info: {
-    flex: 1,
-    justifyContent: 'flex-end',
-    alignItems: 'center',
-    flexDirection: 'column'
-  },
-  title: {
-    fontSize: 22,
-    fontWeight: '700'
-  },
-  subtitle: {
-    fontSize: 20,
-    paddingBottom: 30
-  }
-});
-
 FadingSlides.propTypes = {
   startAnimation: PropTypes.bool,
   stillDuration: PropTypes.number,
   fadeDuration: PropTypes.number,
-  height: PropTypes.number,
+  height: PropTypes.number.isRequired,
   slides: PropTypes.arrayOf(
     PropTypes.shape({
       image: PropTypes.number,
@@ -115,13 +87,13 @@ FadingSlides.propTypes = {
       title: PropTypes.string,
       subtitle: PropTypes.string,
       titleColor: PropTypes.string,
-      subtitleColor: PropTypes.string
-    })
-  )
+      subtitleColor: PropTypes.string,
+    }),
+  ).isRequired,
 };
 
 FadingSlides.defaultProps = {
-  startAnimation: false,
+  startAnimation: true,
   stillDuration: MINIMUM_DELAY,
-  fadeDuration: MINIMUM_DELAY
+  fadeDuration: MINIMUM_DELAY,
 };

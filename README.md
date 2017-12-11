@@ -7,7 +7,7 @@ Simple looped fading slides carousel for React Native.
 ### Installation
 
 ```bash
-npm install react-native-fading-slides
+npm install --save react-native-fading-slides
 ```
 
 ### Properties
@@ -17,6 +17,7 @@ fadeDuration={500} // Milliseconds for slide fade
 stillDuration={1000} // Milliseconds for slide still
 height={1000} // Set the slides component height
 slides={slidesList} // Set the slides list
+startAnimation={true} // Start or stops animation
 ```
 
 ### Slides Properties
@@ -63,10 +64,12 @@ render() {
   return (
     <View>
       <FadingSlides
-      slides={slides}
-      fadeDuration={1200}
-      stillDuration={2000}
-      height={500}/>
+        slides={slides}
+        fadeDuration={1200}
+        stillDuration={2000}
+        height={500}
+        startAnimation={true}
+      />
     </View>
   );
 };

@@ -1,10 +1,18 @@
 {
   "name": "react-native-fading-slides",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "Simple looped fading slides carousel for React Native",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "postinstall": "babel index.jsx --out-file index.js",
+    "precommit": "lint-staged"
+  },
+  "lint-staged": {
+    "*.{js,jsx}": [
+      "eslint --fix",
+      "prettier --write --single-quote --trailing-comma all --print-width 100",
+      "git add"
+    ]
   },
   "repository": {
     "type": "git",
@@ -19,11 +27,30 @@
     "ios",
     "android"
   ],
-  "author":
-    "Fellipe Chagas <chagas.0@gmail.com> (https://github.com/chagasaway)",
+  "author": "Fellipe Chagas <chagas.0@gmail.com> (https://github.com/chagasaway)",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/chagasaway/react-native-fading-slides/issues"
   },
-  "homepage": "https://github.com/chagasaway/react-native-fading-slides"
+  "homepage": "https://github.com/chagasaway/react-native-fading-slides",
+  "devDependencies": {
+    "babel-eslint": "^7.2.3",
+    "eslint": "^4.13.0",
+    "eslint-config-airbnb": "^16.1.0",
+    "eslint-config-prettier": "^2.9.0",
+    "eslint-plugin-import": "^2.8.0",
+    "eslint-plugin-jsx-a11y": "^6.0.2",
+    "eslint-plugin-prettier": "^2.3.1",
+    "eslint-plugin-react": "^7.5.1",
+    "husky": "^0.14.3",
+    "lint-staged": "^6.0.0",
+    "prettier": "^1.9.1"
+  },
+  "dependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.0",
+    "babel-plugin-transform-es2015-constants": "^6.1.4",
+    "babel-preset-airbnb": "^2.4.0",
+    "babel-preset-react-native": "^4.0.0"
+  }
 }
