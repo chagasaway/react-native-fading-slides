@@ -23,7 +23,6 @@
     "prop-types": "^15.6.0",
     "react": "16.0.0",
     "react-native": "0.50.3",
-    "react-native-fading-slides":
-      "git+ssh://git@github.com/chagasaway/react-native-fading-slides.git#0.2.0"
+    "react-native-fading-slides": "git+ssh://git@github.com/chagasaway/react-native-fading-slides.git#0.3.0"
   }
 }
