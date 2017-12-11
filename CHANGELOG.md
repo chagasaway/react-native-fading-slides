@@ -22,3 +22,7 @@
 ### 0.3.0
 
 * Fixes memory leak and adds startAnimation property
+
+### 0.3.1
+
+* Fixes issue with slide change
