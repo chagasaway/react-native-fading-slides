@@ -1,6 +1,6 @@
 {
   "name": "react-native-fading-slides",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "description": "Simple looped fading slides carousel for React Native",
   "main": "index.js",
   "scripts": {

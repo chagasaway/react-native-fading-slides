@@ -48,7 +48,7 @@ export default class FadingSlides extends React.Component {
     let index = this.state.currentIndex + 1;
     index = index < this.props.slides.length ? index : 0;
     if (this.props.startAnimation) {
-      this.setState({ currentIndex: index }, this.wait(this.show));
+      this.setState({ currentIndex: index }, () => this.wait(this.show));
     }
   };
 
